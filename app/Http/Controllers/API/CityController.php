@@ -60,7 +60,7 @@ class CityController extends ApiController
 
             $newCity->weather_data = $weatherData;
 
-            return $this->successResponse(new CityResource($newCity), __('api_responses.cities.store.success'));
+            return $this->successResponse(new CityResource($newCity), __('api_responses.cities.store.success'), 201);
         } catch (ModelNotFoundException $error) {
             return $this->errorResponse($error->getMessage(), 404);
         } catch (\Exception $error) {
