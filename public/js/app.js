@@ -1,14 +1,16 @@
 $(document).ready(function ($) {
     $('.input input').keypress(function (e) {
-        if (e.keyCode == 13 && $(this).val() != '') {
+        if (e.keyCode == 13 && $(this).val() !== '') {
             var city_name = $(this).val();
             fetchData(city_name);
         }
     });
 
     $('.search').on('click', function (e) {
-        var city_name = $('.input input').val();
-        fetchData(city_name);
+        if ($('.input input').val() !== '') {
+            var city_name = $('.input input').val();
+            fetchData(city_name);
+        }
     });
 
     function fetchData(city_name) {
@@ -30,7 +32,7 @@ $(document).ready(function ($) {
             success: function (data) {
                 if (data.status == 'Success') {
                     var data = data.data.weather_data;
-                    
+
                     $('.weather-data__data-values--temprature span').text(data.main.temp);
                     $('.weather-data__data-values--temprature-max-min span').text(data.main.temp_max + '/' + data.main.temp_min);
                     $('.weather-data__data-values--humidity span').text(data.main.humidity);
