@@ -1,6 +1,6 @@
 # Weather App
 
-### Installation
+## Installation
 
 Clone the repository
 
@@ -33,3 +33,32 @@ Run the database migrations (**Set the database connection in .env before migrat
 Start the local development server
 
     php artisan serve
+
+
+## Front-End
+
+Visit the home page and type the valid name of the city to get the weather data
+
+
+## APIs
+
+### Add New City / Weather DATA for Front-End API
+```http
+POST /api/cities
+```
+##### Parameters:
+```javascript
+{
+  "name" : "NAME OF THE CITY"
+}
+```
+
+### List of all cities with Weather Data API
+```http
+GET /api/cities
+```
+
+### Single City details with Weather Data API
+```http
+GET /api/cities/{city-id}
+```
