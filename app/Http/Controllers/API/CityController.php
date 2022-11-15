@@ -35,7 +35,6 @@ class CityController extends ApiController
 
             return $this->successResponse(CityResource::collection($cities), __('api_responses.cities.index.success'));
         } catch (\Exception $error) {
-            dd($error);
             return $this->errorResponse(__('api_responses.cities.index.error'), 500);
         }
     }
