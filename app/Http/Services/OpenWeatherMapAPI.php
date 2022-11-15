@@ -10,12 +10,14 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class OpenWeatherMapAPI
 {
     private $apiKey;
+    private $weatherDataUnits;
     private $currentWeatherDataAPI;
     private $forecast5WeatherDataAPI;
 
     public function __construct()
     {
         $this->apiKey = Config::get('services.openweathermap.key');
+        $this->weatherDataUnits = Config::get('constants.openweathermap.units');
         $this->currentWeatherDataAPI = Config::get('constants.openweathermap.apis.weather_data.current');
         $this->forecast5WeatherDataAPI = Config::get('constants.openweathermap.apis.weather_data.forecast5');
     }
@@ -27,6 +29,7 @@ class OpenWeatherMapAPI
             'Accept' => 'application/json',
         ])->get($this->currentWeatherDataAPI, [
                 'q' => $city,
+                'units' => $this->weatherDataUnits,
                 'appid' => $this->apiKey
             ]);
 
@@ -43,6 +46,7 @@ class OpenWeatherMapAPI
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ])->get($this->forecast5WeatherDataAPI, [
+                'units' => $this->weatherDataUnits,
                 'lon' => $city->lon,
                 'lat' => $city->lat,
                 'appid' => $this->apiKey

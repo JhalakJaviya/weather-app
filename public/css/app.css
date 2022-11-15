@@ -1,0 +1,128 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(to bottom right, #2628b0, #cb3cdd);
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-title {
+    font-size: 42px;
+    text-align: center;
+    color: #131313;
+    font-weight: bold;
+    padding: 32px 0;
+}
+
+.centered {
+    margin: 0 auto;
+}
+
+.input {
+    width: 400px;
+    background-color: #131313;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat";
+    font-weight: bold;
+}
+
+.input input {
+    background: none;
+    outline: none;
+    border: none;
+    width: 60%;
+    padding: 20px;
+    color: #cb3cdd;
+    font-family: "Montserrat";
+    font-weight: bold;
+}
+
+.input .query {
+    transition: all 0.5s;
+}
+
+.input svg.search {
+    float: right;
+    margin: 22px;
+}
+
+.input .results {
+    /* position: absolute;
+    top: 100%; */
+    width: 90%;
+    padding: 0 5% 0 5%;
+    height: 0px;
+    overflow: hidden;
+    background-color: #181818;
+    transition: all 0.1s;
+    color: rgba(255, 255, 255, 0.2);
+    width: 100%;
+}
+
+.input .results span {
+    float: left;
+    padding-left: 20px;
+}
+
+::-webkit-input-placeholder {
+    opacity: 0.2;
+}
+
+.hidden {
+    display: none;
+}
+
+.normal {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.loader {
+    border: 2px solid #0a0a0a;
+    /* Light grey */
+    border-top: 1px solid #cb3cdd;
+    /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    float: left;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.results.shown {
+    height: auto;
+    padding: 5%;
+    transition: all 0.1s;
+}
+
+.searching {
+    display: none;
+}
+
+.searching.shown {
+    display: block;
+}
+
+.weather-data {
+    color: #939fb6;
+}
+
+.weather-data__data-row {
+    padding: 8px 0;
+    font-size: 14px;
+}
